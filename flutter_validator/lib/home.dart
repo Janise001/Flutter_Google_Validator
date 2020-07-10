@@ -115,10 +115,25 @@ class _HomeState extends State<Home> {
     });
   }
 
-  Future scan() async {
+//  Future scan() async {
+//    var options = ScanOptions();
+//    ScanResult result = await BarcodeScanner.scan(options: options);
+//    print('扫描结果：${result.rawContent}');
+//    BlogModel model = BlogModel(blog: result.rawContent,secret: result.rawContent);
+//    setState(() {
+//      _models.add(model);
+//    });
+//  }
+
+  scan() async {
     var options = ScanOptions();
+
     ScanResult result = await BarcodeScanner.scan(options: options);
-    print('扫描结果：${result.rawContent}');
+    print(result.rawContent);
+    BlogModel model = BlogModel(blog: result.rawContent,secret: result.rawContent);
+    setState(() {
+      _models.add(model);
+    });
   }
 
 }
